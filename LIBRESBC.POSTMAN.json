@@ -1,0 +1,1656 @@
+{
+	"info": {
+		"_postman_id": "3f0182fb-cd72-4e8f-bb6b-f7f8ae37f89f",
+		"name": "LIBRESBC",
+		"description": "Configuration API for Edge Server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CLUSTER",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/cluster",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"cluster"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"JAPANGOD\",\n    \"members\": [\n        \"hazabusa\"\n    ],\n    \"rtp_start_port\": 10000,\n    \"rtp_end_port\": 30000,\n    \"max_calls_per_second\": 100,\n    \"max_concurrent_calls\": 3000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/cluster",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"cluster"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NETALIAS",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"xnet\",\n    \"desc\": \"X Network\",\n    \"addresses\": [\n        {\n            \"member\": \"hazabusa\",\n            \"listen\": \"188.166.185.82\",\n            \"advertise\": \"188.166.185.82\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/base/netalias",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"base",
+								"netalias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"cloudnet\",\n    \"desc\": \"Digital Ocean Network\",\n    \"addresses\": [\n        {\n            \"member\": \"hazabusa\",\n            \"listen\": \"188.166.185.82\",\n            \"advertise\": \"188.166.185.82\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/base/netalias/cloudnet",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"base",
+								"netalias",
+								"cloudnet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/base/netalias/xnet",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"base",
+								"netalias",
+								"xnet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/base/netalias/xnet",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"base",
+								"netalias",
+								"xnet"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ACL",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"private\",\n    \"desc\": \"private domain\",\n    \"action\": \"deny\",\n    \"rules\": [\n        {\n            \"action\": \"deny\",\n            \"key\": \"domain\",\n            \"value\": \"libresbc.com\",\n            \"force\": true\n        },\n        {\n            \"action\": \"allow\",\n            \"key\": \"domain\",\n            \"value\": \"libre.sbc\",\n            \"force\": true\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/base/acl",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"base",
+								"acl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"dolan\",\n    \"desc\": \"DigitalOcean Local Network\",\n    \"action\": \"deny\",\n    \"rules\": [\n        {\n            \"action\": \"allow\",\n            \"key\": \"cidr\",\n            \"value\": \"10.104.0.0/20\"\n        },\n        {\n            \"action\": \"allow\",\n            \"key\": \"cidr\",\n            \"value\": \"10.15.0.0/16\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/base/acl/dolan",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"base",
+								"acl",
+								"dolan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/base/acl/dolan",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"base",
+								"acl",
+								"dolan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/base/acl/dolan",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"base",
+								"acl",
+								"dolan"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GATEWAY",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/base/gateway/awspbx",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"base",
+								"gateway",
+								"awspbx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/base/gateway/cloudflare",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"base",
+								"gateway",
+								"cloudflare"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"awspbx\",\n    \"desc\": \"aws freepbx asterisk\",\n    \"username\": \"libre-user\",\n    \"password\": \"libre@secret\",\n    \"proxy\": \"13.228.87.44\",\n    \"port\": 5060,\n    \"transport\": \"udp\",\n    \"ping\": 120,\n    \"caller_id_in_from\": true,\n    \"do_register\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/base/gateway/awspbx",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"base",
+								"gateway",
+								"awspbx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"name\": \"pbxtcp\",\n    \"desc\": \"aws pbx tcp\",\n    \"username\": \"1084\",\n    \"password\": \"1aedd1a5dcc7fb792ac354d354154e48\",\n    \"proxy\": \"13.228.87.44\",\n    \"port\": 5060,\n    \"transport\": \"tcp\",\n    \"caller_id_in_from\": true,\n    \"do_register\": true,\n    \"ping\": 30,\n    \"contact_in_ping\": \"healthcheck@service.libresbc\",\n    \"ping_user_agent\": \"CheckPBXviaTCP\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/base/gateway",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"base",
+								"gateway"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "SIPPROFILE",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/sipprofile/outside",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"sipprofile",
+								"outside"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"middle\",\n    \"desc\": \"interside interconnect\",\n    \"user_agent\": \"LibreSBC\",\n    \"sdp_user\": \"LibreSDP\",\n    \"local_network_acl\": \"rfc1918.auto\",\n    \"enable_100rel\": true,\n    \"ignore_183nosdp\": true,\n    \"sip_options_respond_503_on_busy\": true,\n    \"disable_transfer\": true,\n    \"manual_redirect\": true,\n    \"enable_3pcc\": false,\n    \"enable_compact_headers\": false,\n    \"dtmf_type\": \"rfc2833\",\n    \"media_timeout\": 0,\n    \"rtp_rewrite_timestamps\": true,\n    \"context\": \"interconnection\",\n    \"sip_port\": 5060,\n    \"sip_address\": \"cloudnet\",\n    \"rtp_address\": \"cloudnet\",\n    \"tls\": true,\n    \"tls_only\": false,\n    \"sips_port\": 5061,\n    \"tls_version\": \"tlsv1.2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/sipprofile",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"sipprofile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/sipprofile/inside",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"sipprofile",
+								"inside"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"outside\",\n    \"desc\": \"interside interconnect\",\n    \"user_agent\": \"LibreSBC\",\n    \"sdp_user\": \"LibreSDP\",\n    \"local_network_acl\": \"rfc1918.auto\",\n    \"enable_100rel\": true,\n    \"ignore_183nosdp\": true,\n    \"sip_options_respond_503_on_busy\": true,\n    \"disable_transfer\": true,\n    \"manual_redirect\": true,\n    \"enable_3pcc\": false,\n    \"enable_compact_headers\": false,\n    \"dtmf_type\": \"rfc2833\",\n    \"media_timeout\": 0,\n    \"rtp_rewrite_timestamps\": true,\n    \"context\": \"interconnection\",\n    \"sip_port\": 5060,\n    \"sip_address\": \"cloudnet\",\n    \"rtp_address\": \"cloudnet\",\n    \"tls\": true,\n    \"tls_only\": false,\n    \"sips_port\": 5061,\n    \"tls_version\": \"tlsv1.2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/sipprofile/outside",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"sipprofile",
+								"outside"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PREANSWER-EARLYMEDIA",
+			"item": [
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"America\",\n    \"desc\": \"America\",\n    \"streams\": [\n        {\n            \"type\": \"tone\",\n            \"stream\": \"%(2000,4000,440,480)\"\n        },\n        {\n            \"type\": \"media\",\n            \"stream\": \"declaration.wav\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/preanswer",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"preanswer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Unite\",\n    \"desc\": \"Preanswer Class\",\n    \"streams\": [\n        {\n            \"type\": \"speak\",\n            \"stream\": \"We are connecting your call immediatly\"\n        },\n        {\n            \"type\": \"tone\",\n            \"stream\": \"%(400,200,400,450);%(400,2000,400,450)\"\n        },\n        {\n            \"type\": \"media\",\n            \"stream\": \"music.wav\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/preanswer/UnitedKingdom",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"preanswer",
+								"UnitedKingdom"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/preanswer/United",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"preanswer",
+								"United"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/preanswer/America",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"preanswer",
+								"America"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MEDIA",
+			"item": [
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Anycodec\",\n    \"desc\": \"Every codecs\",\n    \"codecs\": [\n        \"PCMA\",\n        \"PCMU\",\n        \"G729\",\n        \"OPUS\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/media/ALL",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"media",
+								"ALL"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/media/Anycodec",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"media",
+								"Anycodec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Anycodec\",\n    \"desc\": \"Every codecs\",\n    \"codecs\": [\n        \"PCMA\",\n        \"PCMU\",\n        \"G729\",\n        \"OPUS\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/media",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"media"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/media/Anycodec",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"media",
+								"Anycodec"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CAPACITY",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/capacity/LightLoad",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"capacity",
+								"LightLoad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/capacity/LightLoad",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"capacity",
+								"LightLoad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"LightLoad\",\n    \"desc\": \"Company Limit\",\n    \"cps\": 1,\n    \"concurentcalls\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/capacity/LightLoad",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"capacity",
+								"LightLoad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"LightLoad\",\n    \"desc\": \"Company Limit\",\n    \"cps\": 5,\n    \"concurentcalls\": 20 \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/capacity",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"capacity"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "TRANSLATION",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/translation/Toany",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"translation",
+								"Toany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/translation/Toany",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"translation",
+								"Toany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Toany\",\n    \"caller_number_pattern\": \"\",\n    \"destination_number_pattern\": \"^([0-9]*)$\",\n    \"caller_number_replacement\": \"\",\n    \"destination_number_replacement\": \"84987654321\",\n    \"caller_name\": \"_caller_number\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/translation/Toany",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"translation",
+								"Toany"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Toany\",\n    \"caller_number_pattern\": \"\",\n    \"destination_number_pattern\": \"^([0-9]*)$\",\n    \"caller_number_replacement\": \"\",\n    \"destination_number_replacement\": \"84987654321\",\n    \"caller_name\": \"MINH\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/class/translation",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"class",
+								"translation"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "INTCON - OUTBOUND",
+			"item": [
+				{
+					"name": "DETAIL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/interconnection/outbound/EDGE",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"interconnection",
+								"outbound",
+								"EDGE"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/interconnection/outbound/AWSVOICE",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"interconnection",
+								"outbound",
+								"AWSVOICE"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"EDGE\",\n    \"desc\": \"EdgeSBC Outbound Interconect\",\n    \"sipprofile\": \"outside\",\n    \"distribution\": \"weight_based\",\n    \"rtpaddrs\": [\n        \"13.251.187.187/32\"\n    ],\n    \"capacity_class\": \"LightLoad\",\n    \"translation_classes\": [],\n    \"manipulation_classes\": [],\n    \"nodes\": [\n        \"_ALL_\"\n    ],\n    \"enable\": true,\n    \"privacy\": [\n        \"none\"\n    ],\n    \"cid_type\": \"rpid\",\n    \"media_class\": \"Standard\",\n    \"gateways\": [\n        {\n            \"name\": \"awsedge\",\n            \"weigth\": 1\n        }\n    ],\n    \"engagements\": [\n        \"table:gotocore\",\n        \"record:destbase:eq:caller_number\",\n        \"record:destbase:lt:caller_number\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/interconnection/outbound/EDGE",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"interconnection",
+								"outbound",
+								"EDGE"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"AWSVOICE\",\n    \"desc\": \"Awsvoice Outbound Interconnection\",\n    \"sipprofile\": \"outside\",\n    \"distribution\": \"weight_based\",\n    \"gateways\": [\n        {\n            \"name\": \"awspbx\",\n            \"weight\": 2\n        },\n        {\n            \"name\": \"pbxtcp\",\n            \"weight\": 1\n        }\n    ],\n    \"rtpaddrs\": [\n        \"13.228.87.44\"\n    ],\n    \"privacy\": [\n        \"none\"\n    ],\n    \"cid_type\": \"rpid\",\n    \"codec_class\": \"G711\",\n    \"capacity_class\": \"LightLoad\",\n    \"translation_classes\": [],\n    \"manipulation_classes\": [],\n    \"nodes\": [\n        \"_ALL_\"\n    ],\n    \"enable\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/interconnection/outbound",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"interconnection",
+								"outbound"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "INTCON - INBOUND",
+			"item": [
+				{
+					"name": "DETAIL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/interconnection/inbound/EDGEIG",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"interconnection",
+								"inbound",
+								"EDGEIG"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{libreserver}}/libreapi/interconnection/inbound",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"interconnection",
+								"inbound"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"EDGEIG\",\n    \"desc\": \"The inbound traffic from Edge SBC\",\n    \"sipprofile\": \"outside\",\n    \"routing\": \"gotocore\",\n    \"sipaddrs\": [\n        \"13.251.187.187/32\"\n    ],\n    \"rtpaddrs\": [\n        \"13.251.187.187/32\"\n    ],\n    \"ringready\": false,\n    \"capacity_class\": \"LightLoad\",\n    \"translation_classes\": [\n        \"Freeform\"\n    ],\n    \"manipulation_classes\": [],\n    \"authscheme\": \"IP\",\n    \"nodes\": [\n        \"_ALL_\"\n    ],\n    \"enable\": true,\n    \"media_class\": \"Anycodec\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/interconnection/inbound/EDGEIG",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"interconnection",
+								"inbound",
+								"EDGEIG"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"EDGEIG\",\n    \"desc\": \"The inbound traffic from Edge Server\",\n    \"sipprofile\": \"outside\",\n    \"routing\": \"default\",\n    \"sipaddrs\": [\"13.251.187.187\"],\n    \"rtpaddrs\": [\"13.251.187.187\"],\n    \"codec_class\": \"ALL\",\n    \"capacity_class\": \"LightLoad\",\n    \"translation_classes\": [],\n    \"manipulation_classes\": [],\n    \"nodes\": [\"_ALL_\"],\n    \"enable\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/libreapi/interconnection/inbound",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"libreapi",
+								"interconnection",
+								"inbound"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "ROUTING",
+			"item": [
+				{
+					"name": "TABLE",
+					"item": [
+						{
+							"name": "GET",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{libreserver}}/libreapi/routing/table/destbase",
+									"host": [
+										"{{libreserver}}"
+									],
+									"path": [
+										"libreapi",
+										"routing",
+										"table",
+										"destbase"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CREATE",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"destbase\",\n    \"desc\": \"route base on dest\",\n    \"action\": \"query\",\n    \"variables\": [\"dnis\"],\n    \"routes\": {\n        \"primary\": \"EDGE\",\n        \"secondary\": \"EDGE\",\n        \"load\": 100\n    }\n}\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{libreserver}}/libreapi/routing/table",
+									"host": [
+										"{{libreserver}}"
+									],
+									"path": [
+										"libreapi",
+										"routing",
+										"table"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"destbase\",\n    \"desc\": \"route base on dest\",\n    \"variables\": [\n        \"destination_number\"\n    ],\n    \"action\": \"query\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{libreserver}}/libreapi/routing/table/destbase",
+									"host": [
+										"{{libreserver}}"
+									],
+									"path": [
+										"libreapi",
+										"routing",
+										"table",
+										"destbase"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{libreserver}}/libreapi/routing/table/gotocore",
+									"host": [
+										"{{libreserver}}"
+									],
+									"path": [
+										"libreapi",
+										"routing",
+										"table",
+										"gotocore"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "RECORD",
+					"item": [
+						{
+							"name": "CREATE",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"table\": \"destbase\",\n    \"match\": \"lt\",\n    \"value\": \"caller_number\",\n    \"action\": \"route\",\n    \"routes\": {\n        \"primary\": \"EDGE\",\n        \"secondary\": \"EDGE\",\n        \"load\": 100\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{libreserver}}/libreapi/routing/record",
+									"host": [
+										"{{libreserver}}"
+									],
+									"path": [
+										"libreapi",
+										"routing",
+										"record"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPDATE",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"table\": \"destbase\",\n    \"match\": \"ne\",\n    \"value\": \"caller_number\",\n    \"action\": \"route\",\n    \"routes\": {\n        \"primary\": \"EDGE\",\n        \"secondary\": \"EDGE\",\n        \"load\": 100\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{libreserver}}/libreapi/routing/record",
+									"host": [
+										"{{libreserver}}"
+									],
+									"path": [
+										"libreapi",
+										"routing",
+										"record"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{libreserver}}/libreapi/routing/record/destbase/ne/caller_number",
+									"host": [
+										"{{libreserver}}"
+									],
+									"path": [
+										"libreapi",
+										"routing",
+										"record",
+										"destbase",
+										"ne",
+										"caller_number"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "PROVISIONING",
+			"item": [
+				{
+					"name": "SOFIA",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"DONET\",\n    \"desc\": \"DigitalOcean Local Network\",\n    \"action\": \"deny\",\n    \"rules\": [\n        {\n            \"action\": \"allow\",\n            \"key\": \"cidr\",\n            \"value\": \"10.20.10.0/24\"\n        },\n        {\n            \"action\": \"allow\",\n            \"key\": \"cidr\",\n            \"value\": \"10.20.11.0/28\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/fsxmlapi/sip-setting",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"fsxmlapi",
+								"sip-setting"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DISTRIBUTOR",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"DONET\",\n    \"desc\": \"DigitalOcean Local Network\",\n    \"action\": \"deny\",\n    \"rules\": [\n        {\n            \"action\": \"allow\",\n            \"key\": \"cidr\",\n            \"value\": \"10.20.10.0/24\"\n        },\n        {\n            \"action\": \"allow\",\n            \"key\": \"cidr\",\n            \"value\": \"10.20.11.0/28\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/fsxmlapi/distributor",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"fsxmlapi",
+								"distributor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SWITCH",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"DONET\",\n    \"desc\": \"DigitalOcean Local Network\",\n    \"action\": \"deny\",\n    \"rules\": [\n        {\n            \"action\": \"allow\",\n            \"key\": \"cidr\",\n            \"value\": \"10.20.10.0/24\"\n        },\n        {\n            \"action\": \"allow\",\n            \"key\": \"cidr\",\n            \"value\": \"10.20.11.0/28\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/fsxmlapi/switch",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"fsxmlapi",
+								"switch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ESL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"DONET\",\n    \"desc\": \"DigitalOcean Local Network\",\n    \"action\": \"deny\",\n    \"rules\": [\n        {\n            \"action\": \"allow\",\n            \"key\": \"cidr\",\n            \"value\": \"10.20.10.0/24\"\n        },\n        {\n            \"action\": \"allow\",\n            \"key\": \"cidr\",\n            \"value\": \"10.20.11.0/28\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/fsxmlapi/event-socket",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"fsxmlapi",
+								"event-socket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"DONET\",\n    \"desc\": \"DigitalOcean Local Network\",\n    \"action\": \"deny\",\n    \"rules\": [\n        {\n            \"action\": \"allow\",\n            \"key\": \"cidr\",\n            \"value\": \"10.20.10.0/24\"\n        },\n        {\n            \"action\": \"allow\",\n            \"key\": \"cidr\",\n            \"value\": \"10.20.11.0/28\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/fsxmlapi/acl",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"fsxmlapi",
+								"acl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DIRECTORY",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"DONET\",\n    \"desc\": \"DigitalOcean Local Network\",\n    \"action\": \"deny\",\n    \"rules\": [\n        {\n            \"action\": \"allow\",\n            \"key\": \"cidr\",\n            \"value\": \"10.20.10.0/24\"\n        },\n        {\n            \"action\": \"allow\",\n            \"key\": \"cidr\",\n            \"value\": \"10.20.11.0/28\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{libreserver}}/fsxmlapi/directory",
+							"host": [
+								"{{libreserver}}"
+							],
+							"path": [
+								"fsxmlapi",
+								"directory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HEARTBEAT",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"test\":\"test\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{libreserver}}/heartbeat",
+					"host": [
+						"{{libreserver}}"
+					],
+					"path": [
+						"heartbeat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PREDEFINE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{libreserver}}/libreapi/predefine",
+					"host": [
+						"{{libreserver}}"
+					],
+					"path": [
+						"libreapi",
+						"predefine"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "p@ssw0rd$sroot",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "sroot",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
