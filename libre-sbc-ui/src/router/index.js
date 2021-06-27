@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import Settings from '../views/settings'
+import Home from '../features/Home.vue'
+import Settings from '../features/settings'
+import SettingCodec from '../features/settings/codec'
 const routes = [
   {
     path: '/',
@@ -12,9 +13,10 @@ const routes = [
     name: 'settings',
     component: Settings,
     children: [
-      { 
-        path: '/codec', 
-        component: () => import('../views/settings/codec')
+      {    
+       path: 'codec',
+        name:'settingCodec',
+        component: SettingCodec 
       }
     ]
   }

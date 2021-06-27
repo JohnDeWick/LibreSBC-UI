@@ -19,18 +19,14 @@
     <div class="container-xl">
       <div class="row row-cards">
         <div class="col-12">
-            
+          <router-view/>
         </div>
       </div>
     </div>
+  </div>
 </template>
 <script>
-
-export default {
-  import TheNavbar from './components/TheNavbar.vue'
-  name: 'Settings',
-  components: {
-    Codec
-  }
+  export default {
+    name: 'Settings'
 }
 </script>
