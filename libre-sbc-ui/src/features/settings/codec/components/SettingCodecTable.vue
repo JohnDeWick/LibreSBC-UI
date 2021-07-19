@@ -29,8 +29,7 @@ export default {
   },
   async mounted() {
     const response = await CodecApi.getList();
-    console.log(this);
-    this.trace(`get media list response: ${response}`);
+    this.trace('get media list response:', response);
     this.pageData = response.data;
     this.isFetching = false;
   },
