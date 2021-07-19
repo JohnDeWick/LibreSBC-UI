@@ -6,7 +6,7 @@
         <div class="col">
           <!-- Page pre-title -->
           <div class="page-pretitle">
-           Settings 
+           Settings
           </div>
           <h2 class="page-title">
             Codec List
@@ -26,7 +26,7 @@
   </div>
 </template>
 <script>
-  export default {
-    name: 'Settings'
-}
+export default {
+  name: 'Settings',
+};
 </script>

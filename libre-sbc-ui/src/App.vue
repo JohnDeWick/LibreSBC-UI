@@ -13,15 +13,16 @@
   </div>
 </template>
 <script>
-  import TheNavbar from './components/TheNavbar.vue'
-  import TheFooter from './components/TheFooter.vue'
-  export default {
-    name: 'Home',
-    components: {
-      TheNavbar,
-      TheFooter
-    }
-  }
+import TheNavbar from './components/TheNavbar.vue';
+import TheFooter from './components/TheFooter.vue';
+
+export default {
+  name: 'Home',
+  components: {
+    TheNavbar,
+    TheFooter,
+  },
+};
 </script>
 <style>
   @import "../node_modules/@tabler/core/dist/css/tabler.min.css";

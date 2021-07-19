@@ -13,7 +13,12 @@
     <td>$940</td>
     <td class="text-end">
       <span class="dropdown">
-        <button class="btn dropdown-toggle align-text-top" data-bs-boundary="viewport" data-bs-toggle="dropdown">Actions</button>
+        <button
+          class="btn dropdown-toggle align-text-top"
+          data-bs-boundary="viewport"
+          data-bs-toggle="dropdown">
+          Actions
+        </button>
         <div class="dropdown-menu dropdown-menu-end">
           <a class="dropdown-item" href="#">
             Action
@@ -27,24 +32,23 @@
   </tr>
 </template>
 <script>
-  let rowTestData = {
-    name: 'Codec A',
-    decs: 'Codec desc',
-    codecs: 'PCMA PCMU OPUS'
-  }
+// const rowTestData = {
+//  name: 'Codec A',
+//  decs: 'Codec desc',
+//  codecs: 'PCMA PCMU OPUS',
+// };
 
-  export default {
-    name: 'BaseTableContentRow',
-    props: {
-      item: {
-        type: Object,
-        required: true
-      },
-      fieldsDef: {
-        type: Array,
-        required: true
-      }
-    }
-  }
+export default {
+  name: 'BaseTableContentRow',
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+    fieldsDef: {
+      type: Array,
+      required: true,
+    },
+  },
+};
 </script>
-

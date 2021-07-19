@@ -25,13 +25,15 @@
                   </a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" role="button" aria-expanded="false" >
+                  <a class="nav-link dropdown-toggle"
+                    href="#navbar-base"
+                    data-bs-toggle="dropdown"
+                    role="button"
+                    aria-expanded="false" >
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3" /><line x1="12" y1="12" x2="20" y2="7.5" /><line x1="12" y1="12" x2="12" y2="21" /><line x1="12" y1="12" x2="4" y2="7.5" /><line x1="16" y1="5.25" x2="8" y2="9.75" /></svg>
                     </span>
-                    <span class="nav-link-title">
-                      Settings
-                    </span>
+                    <span class="nav-link-title">Settings</span>
                   </a>
                   <div class="dropdown-menu">
                     <div class="dropdown-menu-columns">
@@ -41,7 +43,7 @@
                           Translation
                         </a>
                         <a class="dropdown-item" href="./" >
-                          Capacity 
+                          Capacity
                         </a>
                       </div>
                       <div class="dropdown-menu-column">
@@ -59,7 +61,11 @@
                   </div>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown" role="button" aria-expanded="false" >
+                  <a class="nav-link dropdown-toggle"
+                    href="#navbar-extra"
+                    data-bs-toggle="dropdown"
+                    role="button"
+                    aria-expanded="false">
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/star -->
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
                     </span>
@@ -102,12 +108,16 @@
                   </a>
                 </li>
                 <li class="nav-item active dropdown">
-                  <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" role="button" aria-expanded="false" >
+                  <a class="nav-link dropdown-toggle"
+                    href="#navbar-layout"
+                    data-bs-toggle="dropdown"
+                    role="button"
+                    aria-expanded="false">
                     <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="6" height="5" rx="2" /><rect x="4" y="13" width="6" height="7" rx="2" /><rect x="14" y="4" width="6" height="7" rx="2" /><rect x="14" y="15" width="6" height="5" rx="2" /></svg>
                     </span>
                     <span class="nav-link-title">
-                     Maintenance 
+                     Maintenance
                     </span>
                   </a>
                   <div class="dropdown-menu">
@@ -145,7 +155,10 @@
                       <!-- Download SVG icon from http://tabler-icons.io/i/search -->
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="10" cy="10" r="7" /><line x1="21" y1="21" x2="15" y2="15" /></svg>
                     </span>
-                    <input type="text" class="form-control" placeholder="Search…" aria-label="Search in website">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Search…" aria-label="Search in website">
                   </div>
                 </form>
               </div>
@@ -155,17 +168,16 @@
       </div>
 </template>
 <script>
-    export default {
-      name: "TheNavbar",
-      data: () => ({
-        process: [
-          {label: 'New feedback', movement: 6, total: 62},
-          {label: 'Today profit', movement: -3, total: '$652'}
-        ]
-      })
-    }
+export default {
+  name: 'TheNavbar',
+  data: () => ({
+    process: [
+      { label: 'New feedback', movement: 6, total: 62 },
+      { label: 'Today profit', movement: -3, total: '$652' },
+    ],
+  }),
+};
 </script>
 
 <style scoped>
 </style>
-

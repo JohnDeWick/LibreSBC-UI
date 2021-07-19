@@ -4,9 +4,18 @@
       <div class="row text-center align-items-center flex-row-reverse">
         <div class="col-lg-auto ms-lg-auto">
           <ul class="list-inline list-inline-dots mb-0">
-            <li class="list-inline-item"><a href="./docs/index.html" class="link-secondary">Documentation</a></li>
-            <li class="list-inline-item"><a href="./license.html" class="link-secondary">License</a></li>
-            <li class="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary" rel="noopener">Source code</a></li>
+            <li class="list-inline-item">
+              <a href="./docs/index.html" class="link-secondary">Documentation</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="./license.html" class="link-secondary">License</a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/tabler/tabler"
+                target="_blank" class="link-secondary" rel="noopener">
+                Source code
+              </a>
+            </li>
             <li class="list-inline-item">
               <a href="https://github.com/sponsors/codecalm" target="_blank" class="link-secondary" rel="noopener">
                 <!-- Download SVG icon from http://tabler-icons.io/i/heart -->
@@ -34,9 +43,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'TheFooter'
-  }
+export default {
+  name: 'TheFooter',
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

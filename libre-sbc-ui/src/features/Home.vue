@@ -17,7 +17,7 @@
   </div>
   <div class="page-body">
     <div class="container-xl">
-    
+
     </div>
   </div>
 </template>
@@ -28,6 +28,6 @@
 export default {
   name: 'Home',
   components: {
-  }
-}
+  },
+};
 </script>
